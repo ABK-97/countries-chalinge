@@ -1,0 +1,176 @@
+
+.section-1{
+    background-color: $Very-Dark-Blue-Dark-Mode-Background;
+    padding: 30px 0;
+    .sec-1{
+        background-color: $Dark-Blue-Dark-Mode-Elements;
+        width: 80%;
+        margin: auto;
+        padding: 5px 0;
+        border-radius: 4px;
+        i{
+            background-color: $Dark-Blue-Dark-Mode-Elements;
+            padding: 10px;
+            width: 20%;
+            text-align: center;
+            color: white;
+        }
+        input{
+            background-color: $Dark-Blue-Dark-Mode-Elements;
+            width: 77%;
+            padding: 10px;
+            border: none;
+            color: white;
+            &:focus{
+                outline: none;
+            }
+
+        }
+        option{
+            width: 40%;
+        }
+    }
+    .sec-2{
+        width: 80%;
+        margin: auto;
+        margin-top: 15px;
+        select{
+            width: 50%;
+            padding: 10px;
+            background-color:$Dark-Blue-Dark-Mode-Elements;
+            color: white;
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    &.active{
+        background-color: $Very-Light-Gray-Light-Mode-Background;
+        .sec-1{
+            background-color: white;
+            i,input{
+                background-color: white;
+                color: black;
+            }
+        }
+        .sec-2{
+            select{
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}
+// ------------------------------------------------------media large--------------------------------------------------
+@include large{
+    .section-1{
+        padding: 30px ;
+        display: flex;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+
+        .sec-1{
+            width: 25%;
+            margin: 0;
+            padding:  0;
+            display: flex;
+            i{
+                padding: 13px;
+                cursor: pointer;
+            }
+            input{
+                width: 80%;
+                padding: 13px;
+            }
+        }
+        .sec-2{
+            width: 15%;
+            margin: 0;
+            select{
+                width: 100%;
+                margin-bottom: 0px;
+            }
+        }
+
+    }
+}
+// -----------------------------------------------------------------------------------------------------------------------
+.section-2{
+    padding: 50px;
+    .container{
+        width: 100%;
+        background-color: $Dark-Blue-Dark-Mode-Elements;
+        margin-bottom: 40px;
+        border-radius: 7px;
+        padding-bottom: 40px;
+        img{
+            width: 100%;
+            border-radius: 7px;
+        }
+        h3,p{
+            padding-left: 20px;
+            color: white;
+            text-transform: capitalize;
+        }
+        h3{
+            margin: 20px 0;
+            font-weight: 800;
+
+        }
+        p{
+            font-weight: 600;
+            padding: 5px 20px;
+        }
+        span{
+            color: #ffffffa6;
+            font-weight: 300;
+        }
+    }
+    &.active{
+        background-color: $Very-Light-Gray-Light-Mode-Background;
+        .container{
+            background-color: white;
+            h3,p{
+                color: black;
+            }
+            span{
+                color: black;
+            }
+        }
+    }
+}
+// ---------------------------------------------------------section-2-media-larg-------------------------------------------
+@include large{
+    .section-2{
+        padding: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6.6%;
+        .container{
+            width: 20%;
+            cursor: pointer;
+            transition: all 0.6s ease;
+            &:hover{
+                background-color: #364f64 ;
+            }
+            img{
+                height: 200px;
+            }
+        }
+        &.active{
+            .container:hover{
+                h3,p{
+                    color: white;
+                }
+                span{
+                    color:#ffffffa6;
+                }
+            }
+        }
+    }
+    
+}
