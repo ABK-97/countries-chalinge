@@ -21,18 +21,11 @@
         padding: 10px;
         border-radius: 7px;
         cursor: pointer;
-        transition: all 0.7s ;
         text-transform: capitalize;
-        &:hover{
-            background-color:#435564 ;
-            
-        }
     }
     &.active{
         background-color: white;
         color: $Very-Dark-Blue-Light-Mode-Text;
-        .dark-light:hover{
-            color: white;
-        }
+        box-shadow: inset 0px -1px 0px 0px #80808021;
     }
 }

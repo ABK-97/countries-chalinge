@@ -1,11 +1,14 @@
 
 .section-1{
     background-color: $Very-Dark-Blue-Dark-Mode-Background;
-    padding: 30px 0;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
     .sec-1{
         background-color: $Dark-Blue-Dark-Mode-Elements;
-        width: 80%;
-        margin: auto;
+        width: 100%;
         padding: 5px 0;
         border-radius: 4px;
         i{
@@ -31,11 +34,10 @@
         }
     }
     .sec-2{
-        width: 80%;
-        margin: auto;
+        width: 50%;
         margin-top: 15px;
         select{
-            width: 50%;
+            width: 100%;
             padding: 10px;
             background-color:$Dark-Blue-Dark-Mode-Elements;
             color: white;
@@ -51,6 +53,7 @@
         background-color: $Very-Light-Gray-Light-Mode-Background;
         .sec-1{
             background-color: white;
+            box-shadow: 0 0 5px 5px #80808021;
             i,input{
                 background-color: white;
                 color: black;
@@ -60,6 +63,7 @@
             select{
                 background-color: white;
                 color: black;
+                box-shadow: 0 0 5px 5px #80808021;
             }
         }
     }
@@ -67,12 +71,11 @@
 // ------------------------------------------------------media large--------------------------------------------------
 @include large{
     .section-1{
-        padding: 30px ;
         display: flex;
-        margin: auto;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-
+        width: 90%;
         .sec-1{
             width: 25%;
             margin: 0;
@@ -101,45 +104,64 @@
 // -----------------------------------------------------------------------------------------------------------------------
 .section-2{
     padding: 50px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    gap: 4rem;
     .container{
         width: 100%;
         background-color: $Dark-Blue-Dark-Mode-Elements;
-        margin-bottom: 40px;
         border-radius: 7px;
         padding-bottom: 40px;
+
         img{
             width: 100%;
             border-radius: 7px;
+            object-fit: cover;
         }
-        h3,p{
+        h2,ul{
             padding-left: 20px;
             color: white;
             text-transform: capitalize;
         }
-        h3{
+        h2{
             margin: 20px 0;
             font-weight: 800;
+            font-size: 1.3rem;
 
         }
-        p{
+        li{
             font-weight: 600;
-            padding: 5px 20px;
+            padding: 5px 0px;
         }
         span{
             color: #ffffffa6;
             font-weight: 300;
         }
     }
+    .invalied{
+        background-color: $Dark-Blue-Dark-Mode-Elements;
+        text-align: center;
+        color: white;
+        padding: 20px;
+        font-size: 1.5rem;
+    }
     &.active{
         background-color: $Very-Light-Gray-Light-Mode-Background;
         .container{
             background-color: white;
-            h3,p{
+            box-shadow: 0 0 5px 5px #80808021;
+            h2,ul{
                 color: black;
             }
             span{
                 color: black;
             }
+        }
+        .invalied{
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 5px 5px #80808021;
         }
     }
 }
@@ -147,28 +169,13 @@
 @include large{
     .section-2{
         padding: 30px;
-        display: flex;
         flex-wrap: wrap;
-        gap: 6.6%;
+        flex-direction: row;
         .container{
             width: 20%;
             cursor: pointer;
-            transition: all 0.6s ease;
-            &:hover{
-                background-color: #364f64 ;
-            }
             img{
                 height: 200px;
-            }
-        }
-        &.active{
-            .container:hover{
-                h3,p{
-                    color: white;
-                }
-                span{
-                    color:#ffffffa6;
-                }
             }
         }
     }

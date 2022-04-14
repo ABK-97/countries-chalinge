@@ -15,16 +15,20 @@ async function get(){
 
     filterByRegion.addEventListener("change",function(){
         dataFilterd = data.filter(function(e){
-            return e.region == filterByRegion.value; 
+            return filterByRegion.value == "All" ? dataFilterd = data : e.region == filterByRegion.value;
         })
         toPage(dataFilterd);
     })
 
     searchI.addEventListener("click",function(){
         let dataFilterdS = dataFilterd.filter(function(e){
-            return e.name == inputCountry.value ;
+            return e.name == inputCountry.value;
         })
-        toPage(dataFilterdS);
+        if(dataFilterdS.length == 0){
+            sectionTwo.innerHTML = `<div class="invalied">No Results...</div>`;
+        }else {
+            toPage(dataFilterdS);
+        }
     });
 
 
@@ -44,28 +48,32 @@ function toPage(data){
 
         let flagImg = document.createElement("img");
         flagImg.src = data[i].flag ;
+        flagImg.alt = "Country Flag"
         container.appendChild(flagImg);
 
-        let h3 =document.createElement("h3");
+        let h3 =document.createElement("h2");
         h3.innerHTML = data[i].name;
         container.appendChild(h3);
 
-        let para1 = document.createElement("p");
+        let datiles = document.createElement("ul");
+        container.appendChild(datiles);
+
+        let para1 = document.createElement("li");
         para1.innerHTML = `population : <span>${ internationalNumberFormat.format(data[i].population)}</span> `;
-        container.appendChild(para1);
+        datiles.appendChild(para1);
 
-        let para2 = document.createElement("p");
+        let para2 = document.createElement("li");
         para2.innerHTML = `Region : <span>${data[i].region}</span> `;
-        container.appendChild(para2);
+        datiles.appendChild(para2);
 
-        let para3 = document.createElement("p");
+        let para3 = document.createElement("li");
         para3.innerHTML = `capital : <span>${data[i].capital}</span> `;
-        container.appendChild(para3);
+        datiles.appendChild(para3);
 
         sectionTwo.appendChild(container);
 
         container.addEventListener("click",function(){
-            toPageTwo(this.getAttribute("data-id"),data);
+            toPageTwo(this.getAttribute("data-id"));
             
         })
 
@@ -82,9 +90,5 @@ function countryList(data){
 }
 
 function toPageTwo(name,data){
-    let countryInfo = data.filter(function(e){
-        return e.name == name ;
-    });
-    window.localStorage.setItem("country",JSON.stringify(countryInfo));
-    window.location.href = "./pages/info.html";
+    window.location.href = `./pages/info.html?country=${name}`;
 }
